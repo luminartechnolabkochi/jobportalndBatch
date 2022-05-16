@@ -1,0 +1,10 @@
+register
+login
+logout
+create custom user model
+
+    username
+    email
+    password
+    phone
+    role("employer","candidate")
