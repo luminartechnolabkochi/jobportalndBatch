@@ -1,7 +1,7 @@
 from django.urls import reverse_lazy
 from django.shortcuts import render
 from candidate.forms import CandidateProfileForm
-from django.views.generic import TemplateView,CreateView
+from django.views.generic import TemplateView,CreateView,DetailView
 from candidate.models import CandidateProfile
 from employer.models import Jobs
 # Create your views here.
@@ -27,3 +27,8 @@ class CandidateProfileCreateView(CreateView):
         form.instance.user=self.request.user
         return super().form_valid(form)
 
+class CandidateJobDetailView(DetailView):
+    template_name = "cand-detailjob.html"
+    model=Jobs
+    context_object_name = "job"
+    pk_url_kwarg = "id"
