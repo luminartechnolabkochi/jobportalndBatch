@@ -14,7 +14,9 @@
                 jobtitle:{{job.job_title}}
                 exp:{{job.experience}}
                 created_date:{{job.created_date}}
-                <a href="">Detail</a>
+                <a href="{%url 'emp-jobdetail' job.id %}">Detail</a>
+                <a href="">Update</a>
+                <a href="">View Applications</a>
             </div>
             {%endfor%}
 

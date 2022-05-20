@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView,CreateView,ListView
+from django.views.generic import TemplateView,CreateView,ListView,DetailView
 from employer.forms import EmployerProfileForm,JobForm
 from employer.models import EmployerProfile,Jobs
 class EmployerHomeView(TemplateView):
@@ -50,3 +50,9 @@ class EmployerJobListView(ListView):
 
     def get_queryset(self):
         return Jobs.objects.filter(posted_by=self.request.user)
+class JobDetailView(DetailView):
+    model=Jobs
+    template_name = "emp-jobdetail.html"
+    context_object_name = "job"
+    pk_url_kwarg = "id"
+
